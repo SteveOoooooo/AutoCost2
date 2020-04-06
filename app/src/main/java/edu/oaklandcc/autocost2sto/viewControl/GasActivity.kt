@@ -1,7 +1,6 @@
 package edu.oaklandcc.autocost2sto.viewControl
 
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import edu.oaklandcc.autocost2sto.R
 import edu.oaklandcc.autocost2sto.model.Fillup
@@ -9,7 +8,7 @@ import edu.oaklandcc.autocost2sto.model.Model
 import kotlinx.android.synthetic.main.activity_gas.*
 import java.util.*
 
-class GasActivity() : AppCompatActivity()
+class GasActivity : AppCompatActivity()
 {
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -8,11 +8,11 @@ import edu.oaklandcc.autocost2sto.model.Model
 
 class StatisticsActivity : AppCompatActivity() {
 
-    lateinit var totalFillups : TextView
-    lateinit var totalGas : TextView
-    lateinit var totalOdo : TextView
-    lateinit var totalCost : TextView
-    lateinit var lastMPG : TextView
+    private lateinit var totalFillups : TextView
+    private lateinit var totalGas : TextView
+    private lateinit var totalOdo : TextView
+    private lateinit var totalCost : TextView
+    private lateinit var lastMPG : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,6 @@ class StatisticsActivity : AppCompatActivity() {
         totalCost.text = getTotalCost()
         totalOdo.text = getTotalOdo()
         lastMPG.text = getLastMPG()
-
     }
 
     private fun getTotalFillups() : String = "Totals over ${Model.list.size} fill-ups"

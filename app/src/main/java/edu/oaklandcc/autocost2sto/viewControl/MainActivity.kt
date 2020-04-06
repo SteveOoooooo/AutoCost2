@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var layoutMgr : RecyclerView.LayoutManager
+    private lateinit var layoutMgr : RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         layoutMgr = LinearLayoutManager(this)
         recycler1.apply {
             layoutManager = layoutMgr
-            adapter = MyAdapter(Model.list, this@MainActivity)
+            adapter = MyAdapter(Model.list)
         }
     }
 
@@ -65,7 +65,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun showStats() {
         val statsIntent = Intent(this, StatisticsActivity::class.java)
-        statsIntent.putExtra("listPosition", -1)
         startActivity(statsIntent)
     }
 
