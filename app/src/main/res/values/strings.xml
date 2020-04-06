@@ -22,5 +22,6 @@
     <string name="statisticsTitle">Statistics</string>
     <string name="lastMPG">Last MPG</string>
     <string name="save">Save</string>
-    <string name="edit">Edit Entry</string>
+    <string name="edit">Edit</string>
+    <string name="defaultText">Default Text</string>
 </resources>

@@ -16,10 +16,10 @@ class MyAdapter(var fillupList: ArrayList<Fillup>): RecyclerView.Adapter<MyAdapt
     class MyViewHolder(val myView: CardView)
         : RecyclerView.ViewHolder(myView),
         MenuItem.OnMenuItemClickListener, View.OnCreateContextMenuListener {
-        var textCost: TextView = myView.findViewById(R.id.textView_cost)
-        var textGallons: TextView = myView.findViewById(R.id.textView_gallons)
-        var textDate: TextView = myView.findViewById(R.id.textView_date)
-        var textMileage: TextView= myView.findViewById(R.id.textView_odometer)
+        var textCost: TextView = myView.findViewById(R.id.textView_card_cost)
+        var textGallons: TextView = myView.findViewById(R.id.textView_card_gallons)
+        var textDate: TextView = myView.findViewById(R.id.textView_card_date)
+        var textMileage: TextView= myView.findViewById(R.id.textView_card_odometer)
 
         override fun onMenuItemClick(p0: MenuItem?): Boolean {
             val pos = adapterPosition

@@ -5,30 +5,19 @@ import android.os.Bundle
 import android.widget.TextView
 import edu.oaklandcc.autocost2sto.R
 import edu.oaklandcc.autocost2sto.model.Model
+import kotlinx.android.synthetic.main.activity_statistics.*
 
 class StatisticsActivity : AppCompatActivity() {
-
-    private lateinit var totalFillups : TextView
-    private lateinit var totalGas : TextView
-    private lateinit var totalOdo : TextView
-    private lateinit var totalCost : TextView
-    private lateinit var lastMPG : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_statistics)
 
-        totalFillups = findViewById(R.id.textView_stats_filupTotal)
-        totalGas = findViewById(R.id.textView_stats_gasTotal)
-        totalOdo = findViewById(R.id.textView_stats_odometerTotal)
-        totalCost = findViewById(R.id.textView_stats_costTotal)
-        lastMPG = findViewById(R.id.textView_stats_lastMPG)
-
-        totalFillups.text = getTotalFillups()
-        totalGas.text = getTotalGas()
-        totalCost.text = getTotalCost()
-        totalOdo.text = getTotalOdo()
-        lastMPG.text = getLastMPG()
+        textView_stats_filupTotal.text = getTotalFillups()
+        textView_stats_gasTotal.text = getTotalGas()
+        textView_stats_costTotal.text = getTotalCost()
+        textView_stats_odometerTotal.text = getTotalOdo()
+        textView_stats_lastMPG.text = getLastMPG()
     }
 
     private fun getTotalFillups() : String = "Totals over ${Model.list.size} fill-ups"
