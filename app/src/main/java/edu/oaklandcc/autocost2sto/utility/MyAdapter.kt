@@ -1,16 +1,21 @@
 package edu.oaklandcc.autocost2sto.utility
 
+import android.content.Context
+import android.content.Intent
 import android.view.*
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import edu.oaklandcc.autocost2sto.R
 import edu.oaklandcc.autocost2sto.model.Fillup
 import edu.oaklandcc.autocost2sto.model.Model
+import edu.oaklandcc.autocost2sto.viewControl.GasActivity
 import edu.oaklandcc.autocost2sto.viewControl.MainActivity
+import edu.oaklandcc.autocost2sto.viewControl.StatisticsActivity
 import java.text.SimpleDateFormat
 
-class MyAdapter(var fillupList: ArrayList<Fillup>): RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
+class MyAdapter(var fillupList: ArrayList<Fillup>, var mainActivityContext: Context): RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
 
 
     class MyViewHolder(val myView: CardView)
@@ -36,7 +41,6 @@ class MyAdapter(var fillupList: ArrayList<Fillup>): RecyclerView.Adapter<MyAdapt
         init{
             itemView.setOnCreateContextMenuListener(this)
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -54,8 +58,12 @@ class MyAdapter(var fillupList: ArrayList<Fillup>): RecyclerView.Adapter<MyAdapt
         val dateFormat = SimpleDateFormat("MMM d, yyyy")
         holder.textDate.text = dateFormat.format(fillupList[position].date)
 
-        holder.myView.setOnClickListener {
+        val context = holder.textCost.context
 
+        holder.myView.setOnClickListener {
+            val statsIntent = Intent(context, GasActivity::class.java)
+            statsIntent.putExtra("listPosition", position)
+            context.startActivity(statsIntent)
         }
     }
 }

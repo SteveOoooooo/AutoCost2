@@ -2,35 +2,48 @@ package edu.oaklandcc.autocost2sto.viewControl
 
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import edu.oaklandcc.autocost2sto.R
 import edu.oaklandcc.autocost2sto.model.Fillup
 import edu.oaklandcc.autocost2sto.model.Model
-import edu.oaklandcc.autocost2sto.utility.MyAdapter
 import kotlinx.android.synthetic.main.activity_gas.*
-import kotlinx.android.synthetic.main.content_main.*
 import java.util.*
 
 class GasActivity() : AppCompatActivity()
 {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gas)
 
-        val addButton = findViewById<Button>(R.id.button_addEntry)
-        val costEditText = findViewById<EditText>(R.id.editText_Cost)
+        val listPostition = intent.getIntExtra("listPosition", -1)
 
-        addButton.setOnClickListener{
-            Model.addToList(
-                Fillup(
-                    editText_odometer.text.toString().toDouble(),
-                    editText_Gas.text.toString().toDouble(),
-                    costEditText.text.toString().toDouble(),
-                    Date()
+        if (listPostition > -1){
+            editText_gas_cost.setText(Model.list[listPostition].cost.toString())
+            editText_gas_gas.setText(Model.list[listPostition].gas.toString())
+            editText_gas_odometer.setText(Model.list[listPostition].odometer.toString())
+
+            button_addSaveEntry.setText(R.string.save)
+            textView_gas_title.setText(R.string.edit)
+        }
+        else
+        {
+            button_addSaveEntry.setText(R.string.add)
+            textView_gas_title.setText(R.string.add)
+        }
+
+        button_addSaveEntry.setOnClickListener{
+            if (listPostition > -1){
+                Model.list[listPostition].gas = editText_gas_gas.text.toString().toDouble()
+                Model.list[listPostition].odometer = editText_gas_odometer.text.toString().toDouble()
+                Model.list[listPostition].cost = editText_gas_cost.text.toString().toDouble()
+            }
+            else {
+                Model.addToList(Fillup(editText_gas_odometer.text.toString().toDouble(),
+                    editText_gas_gas.text.toString().toDouble(), editText_gas_cost.text.toString().toDouble(), Date()
+                    )
                 )
-            )
+            }
             this.finish()
         }
     }

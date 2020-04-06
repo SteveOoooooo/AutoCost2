@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         layoutMgr = LinearLayoutManager(this)
         recycler1.apply {
             layoutManager = layoutMgr
-            adapter = MyAdapter(Model.list)
+            adapter = MyAdapter(Model.list, this@MainActivity)
         }
     }
 
@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun showStats() {
         val statsIntent = Intent(this, StatisticsActivity::class.java)
+        statsIntent.putExtra("listPosition", -1)
         startActivity(statsIntent)
     }
 

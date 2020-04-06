@@ -7,11 +7,11 @@
     tools:context=".viewControl.GasActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_gas_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/Add"
+        android:text="@string/add"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,12 +23,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/Gas"
-        app:layout_constraintEnd_toStartOf="@+id/editText_Gas"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:text="@string/gas"
+        app:layout_constraintEnd_toStartOf="@+id/editText_gas_gas"
+        app:layout_constraintTop_toBottomOf="@+id/textView_gas_title" />
 
     <EditText
-        android:id="@+id/editText_Gas"
+        android:id="@+id/editText_gas_gas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -44,12 +44,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/Odometer"
-        app:layout_constraintEnd_toStartOf="@+id/editText_odometer"
-        app:layout_constraintTop_toBottomOf="@+id/editText_Gas" />
+        android:text="@string/odometer"
+        app:layout_constraintEnd_toStartOf="@+id/editText_gas_odometer"
+        app:layout_constraintTop_toBottomOf="@+id/editText_gas_gas" />
 
     <EditText
-        android:id="@+id/editText_odometer"
+        android:id="@+id/editText_gas_odometer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -65,12 +65,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/Cost"
-        app:layout_constraintEnd_toStartOf="@+id/editText_Cost"
-        app:layout_constraintTop_toBottomOf="@+id/editText_odometer" />
+        android:text="@string/cost"
+        app:layout_constraintEnd_toStartOf="@+id/editText_gas_cost"
+        app:layout_constraintTop_toBottomOf="@+id/editText_gas_odometer" />
 
     <EditText
-        android:id="@+id/editText_Cost"
+        android:id="@+id/editText_gas_cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -82,12 +82,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
-        android:id="@+id/button_addEntry"
+        android:id="@+id/button_addSaveEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/Add"
+        android:text="@string/add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_Cost" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_gas_cost" />
 </androidx.constraintlayout.widget.ConstraintLayout>
