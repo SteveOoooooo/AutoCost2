@@ -6,8 +6,10 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import edu.oaklandcc.autocost2sto.model.Fillup
 
-class DBHandler(context: Context?, name: String?, factory: SQLiteDatabase.CursorFactory?,
-    version: Int) : SQLiteOpenHelper(context, name, factory, version) {
+class DBHandler(
+    context: Context?, name: String?, factory: SQLiteDatabase.CursorFactory?,
+    version: Int
+) : SQLiteOpenHelper(context, name, factory, version) {
 
     companion object {
         private val DATABASE_VERSION: Int = 1
@@ -31,7 +33,7 @@ class DBHandler(context: Context?, name: String?, factory: SQLiteDatabase.Cursor
         db?.execSQL(query)
     }
 
-    fun addFillup(fillup: Fillup){
+    fun addFillup(fillup: Fillup) {
         var values = ContentValues()
         values.put(COLUMN_COST, fillup.cost)
         values.put(COLUMN_DATE, fillup.date)
@@ -42,7 +44,7 @@ class DBHandler(context: Context?, name: String?, factory: SQLiteDatabase.Cursor
         db.close()
     }
 
-    fun deleteFillup(fillup: Fillup){
+    fun deleteFillup(fillup: Fillup) {
 
     }
 

@@ -10,13 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import edu.oaklandcc.autocost2sto.R
 import edu.oaklandcc.autocost2sto.model.Model
 import edu.oaklandcc.autocost2sto.utility.MyAdapter
-
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var layoutMgr : RecyclerView.LayoutManager
+    private lateinit var layoutMgr: RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                 showStats()
                 true
             }
-            R.id.action_deleteAll ->{
+            R.id.action_deleteAll -> {
                 deleteAll()
                 true
             }
@@ -69,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         updateAdapterData()
     }
 
-    fun updateAdapterData(){
+    fun updateAdapterData() {
         recycler1.adapter?.notifyDataSetChanged()
     }
 }
