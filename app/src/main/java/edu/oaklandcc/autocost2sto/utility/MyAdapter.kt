@@ -9,11 +9,14 @@ import edu.oaklandcc.autocost2sto.R
 import edu.oaklandcc.autocost2sto.model.Fillup
 import edu.oaklandcc.autocost2sto.model.Model
 import edu.oaklandcc.autocost2sto.viewControl.GasActivity
-import java.text.SimpleDateFormat
+import edu.oaklandcc.autocost2sto.viewControl.MainActivity
 
-class MyAdapter(var fillupList: ArrayList<Fillup>): RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
+class MyAdapter(
+    var fillupList: ArrayList<Fillup>,
+    val mainActivity: MainActivity
+): RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
 
-    class MyViewHolder(val myView: CardView)
+    class MyViewHolder(val myView: CardView, val activity: MainActivity)
         : RecyclerView.ViewHolder(myView),
         MenuItem.OnMenuItemClickListener, View.OnCreateContextMenuListener {
         var textCost: TextView = myView.findViewById(R.id.textView_card_cost)
@@ -24,6 +27,7 @@ class MyAdapter(var fillupList: ArrayList<Fillup>): RecyclerView.Adapter<MyAdapt
         override fun onMenuItemClick(p0: MenuItem?): Boolean {
             val pos = adapterPosition
             Model.removeEntry(pos)
+            activity.updateAdapterData()
             return true
         }
 
@@ -40,7 +44,7 @@ class MyAdapter(var fillupList: ArrayList<Fillup>): RecyclerView.Adapter<MyAdapt
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val all = LayoutInflater.from(parent.context).inflate(R.layout.entry_card, parent, false) as CardView
-        return MyViewHolder(all)
+        return MyViewHolder(all, mainActivity)
     }
 
     override fun getItemCount(): Int = fillupList.size
@@ -49,9 +53,7 @@ class MyAdapter(var fillupList: ArrayList<Fillup>): RecyclerView.Adapter<MyAdapt
         holder.textMileage.text = String.format("%,.1f miles", fillupList[position].odometer )
         holder.textCost.text = String.format("$%,.2f", fillupList[position].cost)
         holder.textGallons.text = String.format("%,.3f gallons", fillupList[position].gas)
-
-        val dateFormat = SimpleDateFormat("MMM d, yyyy")
-        holder.textDate.text = dateFormat.format(fillupList[position].date)
+        holder.textDate.text = fillupList[position].date
 
         val context = holder.textCost.context
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AutoCostSTO</string>
+    <string name="app_name">AutoCost2STO</string>
     <string name="action_settings">Settings</string>
     <string name="title">Gas Entry</string>
     <string name="odometer">Odometer</string>

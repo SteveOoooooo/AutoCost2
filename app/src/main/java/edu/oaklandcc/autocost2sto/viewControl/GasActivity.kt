@@ -7,6 +7,7 @@ import edu.oaklandcc.autocost2sto.R
 import edu.oaklandcc.autocost2sto.model.Fillup
 import edu.oaklandcc.autocost2sto.model.Model
 import kotlinx.android.synthetic.main.activity_gas.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 class GasActivity : AppCompatActivity()
@@ -41,8 +42,12 @@ class GasActivity : AppCompatActivity()
                 Model.list[listPostition].cost = editText_gas_cost.text.toString().toDouble()
             }
             else {
+
+                val dateFormat = SimpleDateFormat("MMM d, yyyy")
+                val stringDate = dateFormat.format(Date())
+
                 Model.addToList(Fillup(editText_gas_odometer.text.toString().toDouble(),
-                    editText_gas_gas.text.toString().toDouble(), editText_gas_cost.text.toString().toDouble(), Date()
+                    editText_gas_gas.text.toString().toDouble(), editText_gas_cost.text.toString().toDouble(), stringDate
                     )
                 )
             }

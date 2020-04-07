@@ -31,13 +31,13 @@ class MainActivity : AppCompatActivity() {
         layoutMgr = LinearLayoutManager(this)
         recycler1.apply {
             layoutManager = layoutMgr
-            adapter = MyAdapter(Model.list)
+            adapter = MyAdapter(Model.list, this@MainActivity)
         }
     }
 
     override fun onResume() {
         super.onResume()
-        recycler1.adapter?.notifyDataSetChanged()
+        updateAdapterData()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -66,6 +66,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun deleteAll() {
         Model.list.clear()
+        updateAdapterData()
+    }
+
+    fun updateAdapterData(){
         recycler1.adapter?.notifyDataSetChanged()
     }
 }
